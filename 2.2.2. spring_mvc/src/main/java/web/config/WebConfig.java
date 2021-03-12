@@ -10,6 +10,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.thymeleaf.spring5.SpringTemplateEngine;
 import org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.spring5.view.ThymeleafViewResolver;
+import web.Car;
+import web.Garage;
 
 @Configuration
 @EnableWebMvc
@@ -40,6 +42,16 @@ public class WebConfig implements WebMvcConfigurer {
         return templateEngine;
     }
 
+    @Bean
+    public Garage createGarage(){
+        Garage garage = new Garage();
+        garage.addCar(new Car("BMW", "X5", "black"));
+        garage.addCar(new Car("Volkswagen", "Polo", "red"));
+        garage.addCar(new Car("UAZ", "469", "Camouflage"));
+        garage.addCar(new Car("Audi", "A5", "blue"));
+        garage.addCar(new Car("BMW", "Roadster", "yellow"));
+        return garage;
+    }
 
     @Override
     public void configureViewResolvers(ViewResolverRegistry registry) {
