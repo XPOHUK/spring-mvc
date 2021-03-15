@@ -5,12 +5,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import web.Garage;
+import web.service.GarageService;
 
 @Controller
 public class CarsController {
     @Autowired
-    Garage garage;
+    GarageService garage;
 
     @GetMapping("/cars")
     public String getNCars(@RequestParam(defaultValue = "0") int count, Model model){

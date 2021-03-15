@@ -1,13 +1,15 @@
-package web;
+package web.service;
+
+import web.model.Car;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Garage {
+public class GarageServiceImpl implements GarageService{
     private final List<Car> cars;
 
-    public Garage(){ this.cars = new ArrayList<>();}
+    public GarageServiceImpl(){ this.cars = new ArrayList<>();}
 
     public List<Car> getNCars(int count){
         return cars.stream().limit(count).collect(Collectors.toList());
